@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff2ef">
+  <link rel="icon" type="image/png" href="../assets/color.png">
+  <link rel="shortcut icon" type="image/png" href="../assets/color.png">
+  <title>色彩學入門｜從看懂顏色到日常配色</title>
+  <style>
+    :root{--ink:#302537;--muted:#786f7c;--navy:#714288;--pink:#ffcccc;--apricot:#caabd8;--paper:#fcf9fd;--white:#fff;--line:#e4dde8;--green:#9873b9;--purple:#caabd8;--orange:#e9a76d;--yellow:#eed46a;--red:#da7c7c}
+    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;color:var(--ink);font-family:"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif}body{display:grid;place-items:center;padding:clamp(18px,2.5vw,38px);background:#e1d7e8}
+    a{color:var(--navy);text-decoration-thickness:1px;text-underline-offset:3px}button{font:inherit}
+    .deck{height:100%;width:100%;position:relative;overflow:hidden;border-radius:12px;background:var(--paper);box-shadow:0 8px 28px #30253718}.slide{position:absolute;inset:0;display:none;padding:clamp(28px,5vw,76px) clamp(28px,7vw,104px) 80px;overflow:auto;animation:in .24s ease-out}.slide.active{display:flex;flex-direction:column}
+    @keyframes in{from{opacity:.2;transform:translateY(8px)}to{opacity:1;transform:none}}
+    .eyebrow{font-size:clamp(12px,1.4vw,16px);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin:0 0 18px}.title{font-size:clamp(32px,5vw,58px);line-height:1.18;letter-spacing:.01em;margin:0 0 20px;max-width:1050px}.lead{font-size:clamp(18px,2.1vw,24px);line-height:1.65;color:#555966;max-width:900px;margin:0}.rule{height:1px;background:var(--line);margin:12px 0 30px}.body{font-size:clamp(16px,1.65vw,21px);line-height:1.65}.muted{color:var(--muted)}.small{font-size:14px;line-height:1.5;color:var(--muted)}
+    .cover{justify-content:center}.cover .title{font-size:clamp(46px,7vw,84px);max-width:720px}.coverGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}.coverArt{display:flex;justify-content:center;align-items:center;min-height:300px}.coverArt img{width:min(100%,330px);height:auto;mix-blend-mode:multiply}.swatches{display:flex;height:clamp(90px,17vh,150px);border-radius:18px;overflow:hidden;box-shadow:0 12px 30px #282b3512;margin-top:28px}.swatches span{flex:1}.swatches span:nth-child(1){background:#ffcccc}.swatches span:nth-child(2){background:#caabd8}.swatches span:nth-child(3){background:#9873b9}.swatches span:nth-child(4){background:#714288}
+    .three{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:12px}.concept{background:var(--white);border-radius:18px;padding:24px;min-height:300px}.concept h2{font-size:clamp(22px,2.5vw,30px);margin:0 0 4px}.concept .en{color:var(--muted);font-size:14px}.concept p{font-size:clamp(16px,1.6vw,20px);line-height:1.55;margin:28px 0}.sample{display:flex;gap:8px;margin-top:auto}.sample i{display:block;flex:1;height:48px;border-radius:9px}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,68px);align-items:center;flex:1}.wheelImage{display:block;width:min(42vw,420px);aspect-ratio:1;object-fit:contain;margin:auto}
+    .callout{background:#f1eaf4;border-radius:16px;padding:22px 24px;margin:20px 0}.callout strong{color:var(--navy)}.schemes{display:grid;gap:11px;margin-top:8px}.scheme{display:grid;grid-template-columns:minmax(125px,.7fr) minmax(220px,1.8fr) 1.2fr;align-items:center;gap:18px;padding:11px 0;border-bottom:1px solid var(--line)}.scheme b{font-size:18px}.scheme span{color:var(--muted);font-size:15px}.chips{display:flex;gap:8px}.chips i{height:38px;flex:1;border-radius:8px}
+    .palette{display:grid;grid-template-columns:1fr .95fr;gap:32px;align-items:center}.paletteStack{border-radius:16px;overflow:hidden;box-shadow:0 10px 28px #282b3510}.paletteStack div{padding:20px 22px;font-weight:700}.paletteStack div:nth-child(1){background:var(--navy);color:white;height:112px}.paletteStack div:nth-child(2){background:var(--pink);height:87px}.paletteStack div:nth-child(3){background:var(--apricot);height:75px}.paletteStack div:nth-child(4){background:#fff9f7;height:70px}.paletteHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.paletteHead img{width:clamp(95px,14vw,175px);mix-blend-mode:multiply}.codeRow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.code{text-align:center;font-size:13px;color:var(--muted)}.code i{display:block;height:56px;border-radius:10px;margin-bottom:9px}.code:nth-child(1) i{background:var(--navy)}.code:nth-child(2) i{background:var(--pink)}.code:nth-child(3) i{background:var(--apricot)}.code:nth-child(4) i{background:#fff9f7;border:1px solid var(--line)}
+    .meanings{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px 0}.meaning{display:flex;gap:16px;align-items:center;padding:10px}.dot{width:54px;height:54px;border-radius:50%;flex:none}.meaning b{font-size:21px}.meaning p{margin:4px 0 0;color:var(--muted)}.bottomNote{background:#ffcccc;border-radius:14px;padding:16px 20px;font-weight:700;text-align:center}
+    .modeCards{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}.mode{background:white;border-radius:18px;padding:24px;min-height:275px}.mode h2{font-size:34px;color:var(--navy);margin:0}.rgbShapes{height:150px;position:relative;margin-top:5px}.rgbShapes i{position:absolute;width:105px;height:105px;border-radius:50%;mix-blend-mode:screen}.rgbShapes i:nth-child(1){left:45%;top:25px;background:#f24d55}.rgbShapes i:nth-child(2){left:57%;top:25px;background:#44a96b}.rgbShapes i:nth-child(3){left:51%;top:70px;background:#4a71e8}
+    .steps{display:grid;gap:16px;margin:8px 0 24px}.step{display:grid;grid-template-columns:52px 160px 1fr;gap:18px;align-items:center}.num{height:48px;width:48px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:white;font-weight:700}.step:nth-child(2) .num{background:var(--pink);color:var(--ink)}.step:nth-child(3) .num{background:var(--apricot);color:var(--ink)}.step:nth-child(4) .num{background:var(--green);color:var(--ink)}.step b{font-size:19px}.step span{color:var(--muted)}
+    .sources{border-top:1px solid var(--line);padding-top:16px;margin-top:auto}.sources h3{margin:0 0 8px;color:var(--navy)}.sources p{margin:6px 0;font-size:14px;line-height:1.5}.sources a{overflow-wrap:anywhere}
+    .controls{position:absolute;z-index:5;bottom:14px;right:18px;display:flex;align-items:center;gap:10px}.controls button{border:0;background:var(--navy);color:white;border-radius:999px;width:42px;height:42px;cursor:pointer;font-size:22px;box-shadow:0 3px 12px #20233220}.controls button:disabled{opacity:.35;cursor:default}.count{font-size:13px;color:var(--muted);min-width:48px;text-align:center}.cite{font-size:12px;color:var(--muted);margin-top:auto;padding-top:14px}.cite a{margin-right:8px}.help{position:absolute;bottom:24px;left:24px;color:var(--muted);font-size:12px;z-index:5}
+    .adaptationBar{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin:20px 0}.lightBox{border-radius:12px;padding:18px;text-align:center;font-weight:700}.lightBox.bright{background:#fff6c6;color:#50451a}.lightBox.dim{background:#33313d;color:#fff}.arrow{font-size:28px;color:var(--navy)}.persistenceLayout{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;flex:1}.persistenceImage{display:block;width:min(100%,430px);height:auto;max-height:none;object-fit:contain;margin:0 auto;border-radius:0;background:transparent}.timeline{display:flex;align-items:center;gap:12px;margin:16px 0}.pulse{height:56px;width:56px;border-radius:8px;background:var(--pink);box-shadow:0 0 0 10px #ffcccc44}.pulse.fade{background:#e5c7d6;opacity:.65}.timelineLine{height:3px;background:linear-gradient(90deg,var(--pink),#caabd8,#9873b9,#714288);flex:1}
+    .sourceFlow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:16px;align-items:stretch;margin:14px 0 22px}.sourceNode{background:#fff;border-radius:16px;padding:22px;min-height:220px}.sourceNode h2{margin:0 0 8px;font-size:23px}.sourceNode p{margin:10px 0 0;font-size:17px;line-height:1.55}.sourceArrow{align-self:center;color:var(--navy);font-size:28px;font-weight:700}.spectrum{height:24px;border-radius:7px;background:linear-gradient(90deg,#75349a,#2857c7,#16a7c5,#39ab58,#e0d03b,#ef8d2f,#c93538);margin:18px 0 8px}.surfaceBand{height:24px;border-radius:7px;background:linear-gradient(90deg,#4b5365 0 52%,#c54f55 52% 100%);margin:18px 0 8px}.eyeBand{height:24px;border-radius:7px;background:linear-gradient(90deg,#ffcccc,#caabd8,#9873b9,#714288);margin:18px 0 8px}
+    @media(max-width:760px){body{padding:12px}.slide{padding:26px 28px 76px 38px}.coverGrid,.two,.palette,.persistenceLayout{grid-template-columns:1fr}.coverArt{min-height:140px}.coverArt img{width:155px}.three{grid-template-columns:1fr;gap:10px}.concept{min-height:0;padding:17px}.concept p{margin:12px 0}.concept .sample{display:none}.wheelImage{width:min(58vw,280px)}.scheme{grid-template-columns:100px 1fr;gap:9px}.scheme .chips{grid-column:2}.modeCards{grid-template-columns:1fr}.mode{min-height:0}.rgbShapes{height:105px}.meanings{grid-template-columns:1fr 1fr;gap:6px}.step{grid-template-columns:42px 100px 1fr;gap:9px}.num{width:40px;height:40px}.sourceFlow{grid-template-columns:1fr;gap:8px}.sourceArrow{justify-self:center;transform:rotate(90deg)}.sourceNode{min-height:0;padding:15px}.slide .title{font-size:clamp(28px,7vw,42px)}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<main class="deck" aria-label="色彩學入門簡報">
+  <section class="slide active cover" aria-label="封面">
+    <div class="coverGrid">
+      <div><p class="eyebrow">色彩學入門｜新手友善</p><h1 class="title">從看懂顏色<br>到日常配色</h1><p class="lead">色相、明度、彩度，色輪與配色關係，還有螢幕和印刷的差別。</p><div class="swatches" aria-label="淺粉紅、淺紫、中紫與深紫色票"><span></span><span></span><span></span><span></span></div></div>
+      <div class="coverArt"><img src="../assets/Layer 1.png" alt="揮翅歡迎的飛行員小鳥插畫"></div>
+    </div><p class="cite">依專案 wiki 整理｜設計入門與日常應用</p>
+  </section>
+  <section class="slide" aria-label="三個色彩線索">
+    <p class="eyebrow">01｜色彩基礎</p><h1 class="title">描述一個顏色的三個線索</h1><div class="rule"></div>
+    <div class="three">
+      <article class="concept"><h2>色相</h2><div class="en">Hue</div><p>它是哪一類顏色？紅、黃、藍、綠……</p><div class="sample"><i style="background:#5d688a"></i><i style="background:#da7c7c"></i><i style="background:#eed46a"></i><i style="background:#99b69a"></i><i style="background:#76b8b3"></i></div></article>
+      <article class="concept"><h2>明度</h2><div class="en">Value / Lightness</div><p>它看起來多亮或多暗？</p><div class="sample"><i style="background:#252936"></i><i style="background:#656b7a"></i><i style="background:#a5a8b1"></i><i style="background:#d8d9dd"></i><i style="background:white;border:1px solid #ddd"></i></div></article>
+      <article class="concept"><h2>彩度</h2><div class="en">Saturation / Chroma</div><p>它看起來多鮮明或灰？</p><div class="sample"><i style="background:#aaa9ad"></i><i style="background:#9696a6"></i><i style="background:#817f9f"></i><i style="background:#696f9b"></i><i style="background:#505eaa"></i></div></article>
+    </div><p class="cite">實際顏色是多個線索一起作用；螢幕、紙張與周遭顏色也會改變觀感。 <a href="https://frankknow.com/color-theory/" target="_blank" rel="noreferrer">犬哥網站</a> · <a href="https://www.shutterstock.com/zh-Hant/blog/complete-guide-color-in-design" target="_blank" rel="noreferrer">Shutterstock</a></p>
+  </section>
+  <section class="slide" aria-label="顏色如何形成">
+    <p class="eyebrow">02｜色彩基礎</p><h1 class="title">我們看到的顏色，來自三個環節</h1><div class="rule"></div>
+    <div class="sourceFlow">
+      <article class="sourceNode"><h2>光源</h2><div class="spectrum" aria-label="可見光的色彩漸層"></div><p>照明帶來不同波長的光。人眼可見範圍約為 380–700 奈米；不同光源的光譜分布並不相同。</p></article>
+      <div class="sourceArrow" aria-hidden="true">→</div>
+      <article class="sourceNode"><h2>物體表面</h2><div class="surfaceBand" aria-label="深色與紅色反射示意"></div><p>表面會依材質反射、散射或吸收部分入射光；透明物體也會透射光，發光物體則能自行發光。</p></article>
+      <div class="sourceArrow" aria-hidden="true">→</div>
+      <article class="sourceNode"><h2>眼睛與大腦</h2><div class="eyeBand" aria-label="視覺色彩處理示意"></div><p>眼睛接收離開表面的光，大腦再結合周遭脈絡形成顏色知覺。</p></article>
+    </div>
+    <div class="callout"><strong>紅色物體遇到藍光：</strong>照明裡沒有紅光可供表面反射，物體可能看起來很暗。物體的反射特性仍在，改變的是照明提供的光。</div>
+    <p class="cite"><a href="https://science.nasa.gov/ems/09_visiblelight/" target="_blank" rel="noreferrer">NASA：Visible Light</a> · <a href="https://osa.magnet.fsu.edu/teachersparents/articles/colorandlight.html" target="_blank" rel="noreferrer">Optical Society：Color and Light</a> · <a href="https://visionbook.mit.edu/color.html" target="_blank" rel="noreferrer">MIT：Color and surface reflectance</a></p>
+  </section>
+  <section class="slide" aria-label="色相環">
+    <p class="eyebrow">03｜色彩基礎</p><h1 class="title">色相環：找出顏色的相對位置</h1><div class="rule"></div>
+    <div class="two"><div><img class="wheelImage" src="../assets/color.png" alt="由色彩色環與中心三角形構成的色彩關係圖"><p class="small" style="text-align:center">色相環與色彩關係示意</p></div><div><h2>常見入門色輪</h2><p class="body">伊登 12 色相環以紅、黃、藍的顏料色輪為教學模型，適合練習相鄰色、互補色等關係。</p><div class="callout"><strong>色輪要看「採用哪一套模型」</strong><p class="body" style="margin:8px 0 0">螢幕 RGB 是混合光；印刷 CMYK 是混合油墨。不同模型的原色與互補關係不完全相同。</p></div><p class="body muted">色相環是整理關係的工具，不是唯一標準答案。不同教材對「對比色」的用法也可能不同。</p></div></div>
+    <p class="cite"><a href="https://frankknow.com/color-theory/" target="_blank" rel="noreferrer">犬哥網站</a> · <a href="https://www.shutterstock.com/zh-Hant/blog/complete-guide-color-in-design" target="_blank" rel="noreferrer">Shutterstock</a></p>
+  </section>
+  <section class="slide" aria-label="眼睛如何適應明暗">
+    <p class="eyebrow">04｜視覺現象</p><h1 class="title">眼睛如何適應明暗</h1><div class="rule"></div>
+    <p class="lead">瞳孔像光圈，能調節進光量；但看清明暗環境，還要靠視網膜與視覺系統調整敏感度。</p>
+    <div class="three" style="margin-top:30px">
+      <article class="concept"><h2>瞳孔</h2><div class="en">調節進入眼內的光量</div><p>亮處縮小、暗處放大，幫助適應，但只負責其中一部分。</p></article>
+      <article class="concept"><h2>視錐細胞</h2><div class="en">較亮環境・色彩與細節</div><p>在明亮環境提供清晰的色彩視覺，也會參與暗處初期的適應。</p></article>
+      <article class="concept"><h2>視桿細胞</h2><div class="en">較暗環境・弱光敏感</div><p>對微弱光線更敏感，但無法提供一般的色彩視覺。</p></article>
+    </div>
+    <div class="callout"><strong>重點：</strong>瞳孔變化比較快；視覺敏感度的適應還涉及感光細胞與神經訊號處理。</div>
+    <p class="cite"><a href="https://polyvision.com.hk/2023/01/12/%E5%85%89%E9%81%A9%E6%87%89%E8%88%87%E6%9A%97%E9%81%A9%E6%87%89/?forceDesktop=1" target="_blank" rel="noreferrer">使用者提供的明暗適應文章</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8031473/" target="_blank" rel="noreferrer">Weiss：Shedding light on dark adaptation</a></p>
+  </section>
+  <section class="slide" aria-label="光適應與暗適應的方向和時間">
+    <p class="eyebrow">05｜視覺現象</p><h1 class="title">光適應與暗適應：方向不同，速度也不同</h1><div class="rule"></div>
+    <div class="modeCards">
+      <article class="mode"><h2>亮處 → 暗處</h2><p class="body"><b>暗適應</b></p><p class="body">剛進暗處時看不清楚。視錐先較快恢復一部分視覺；之後視桿持續提高弱光敏感度。</p><div class="callout"><strong>數十分鐘</strong><p class="small">強光後可能需約 30–40 分鐘接近完全暗適應；這是特定測量條件下的概略值。</p></div></article>
+      <article class="mode"><h2>暗處 → 亮處</h2><p class="body"><b>光適應</b></p><p class="body">突然變亮時可能短暫刺眼。瞳孔收縮，視覺系統也會降低敏感度；整體通常比暗適應快。</p><div class="callout"><strong>較快開始改善</strong><p class="small">初期不適常很快減輕；適應幅度與時間會受亮度變化及先前光照影響。</p></div></article>
+    </div>
+    <p class="body muted" style="margin-top:18px">暗適應時間會隨適應前的光照強度與時間、刺激波長及測量位置改變，不能當成每個人固定相同的倒數計時。</p>
+    <p class="cite"><a href="https://www.ncbi.nlm.nih.gov/books/NBK11525/" target="_blank" rel="noreferrer">Webvision：Light and Dark Adaptation</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8031473/" target="_blank" rel="noreferrer">Weiss：暗適應的雙階段恢復</a></p>
+  </section>
+  <section class="slide" aria-label="視覺殘留">
+    <p class="eyebrow">06｜視覺現象</p><h1 class="title">視覺殘留：刺激消失後，處理不會立刻歸零</h1><div class="rule"></div>
+    <div class="persistenceLayout"><div><p class="lead">光刺激結束後，與它相關的視覺感覺或資訊仍可能短暫延續。</p><div class="timeline" aria-label="光刺激與逐漸淡去的視覺痕跡示意"><i class="pulse"></i><i class="timelineLine"></i><i class="pulse fade"></i></div><p class="body">這種短暫延續可能影響連續刺激的整合，也可能形成模糊感。持續時間不是固定常數，會隨刺激長短、對比、亮度與測量方式改變。</p><div class="callout"><strong>注意：</strong>「影像留在視網膜上」是簡化說法；視覺資訊的短暫延續涉及視網膜與後續視覺處理。</div></div><div><img class="persistenceImage" src="../assets/Persistence of Vision.jpg" alt="黑底白線的靜態網格圖"><p class="small">這是靜態網格圖，可觀察自己的視覺感受；它本身不是刺激消失後的視覺殘留示範。</p></div></div>
+    <p class="cite"><a href="https://zh.wikipedia.org/zh-tw/%E8%A6%96%E8%A6%BA%E6%9A%AB%E7%95%99" target="_blank" rel="noreferrer">使用者提供的視覺殘留文章</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4145468/" target="_blank" rel="noreferrer">視覺時間整合研究</a></p>
+  </section>
+  <section class="slide" aria-label="視覺殘留與電影運動感的差別">
+    <p class="eyebrow">07｜視覺現象</p><h1 class="title">電影的運動感，不只靠視覺殘留</h1><div class="rule"></div>
+    <p class="lead">連續播放位置稍有變化的靜止畫面，會讓人感到物體在移動；這種知覺稱為「似動現象」。</p>
+    <div class="adaptationBar"><div class="lightBox bright">畫面 A<br>物體在左</div><div class="arrow">→</div><div class="lightBox dim">畫面 B<br>物體在右</div></div>
+    <div class="two"><div><h2>似動知覺</h2><p class="body">大腦把先後出現、位置相鄰的刺激組織成移動感。實驗中，依序閃現兩個位置不同的光點，就能誘發似動。</p></div><div><h2>視覺殘留的角色</h2><p class="body">短暫的視覺延續可能造成時間整合或模糊，但單靠「前一格還留著」不足以解釋電影為何看起來會動。幀率也不是唯一因素；曝光時間、顯示方式和場景動態都會影響觀感。</p></div></div>
+    <p class="cite"><a href="https://pubmed.ncbi.nlm.nih.gov/5769767/" target="_blank" rel="noreferrer">Thorson et al.：兩個依序閃現的刺激與似動知覺</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8553010/" target="_blank" rel="noreferrer">Flicker: Your Brain on Movies 摘要</a></p>
+  </section>
+  <section class="slide" aria-label="五種配色方法">
+    <p class="eyebrow">08｜配色方法</p><h1 class="title">五種常用配色關係</h1><div class="rule"></div>
+    <div class="schemes">
+      <div class="scheme"><b>單色</b><span>同一色相，改變明度和彩度</span><div class="chips"><i style="background:#5d688a"></i><i style="background:#7d87a6"></i><i style="background:#aeb4c6"></i><i style="background:#d9dbe4"></i></div></div>
+      <div class="scheme"><b>相似色</b><span>選色輪上相鄰的色相</span><div class="chips"><i style="background:#5d688a"></i><i style="background:#6c8e9c"></i><i style="background:#76b8b3"></i><i style="background:#99b69a"></i></div></div>
+      <div class="scheme"><b>互補色</b><span>選色輪上相對的色相，對比強</span><div class="chips"><i style="background:#5d688a"></i><i style="background:#e9a76d"></i></div></div>
+      <div class="scheme"><b>分割互補</b><span>主色搭配互補色兩側的色相</span><div class="chips"><i style="background:#5d688a"></i><i style="background:#e9a76d"></i><i style="background:#eed46a"></i></div></div>
+      <div class="scheme"><b>三等分</b><span>選色輪上大致等距的三色</span><div class="chips"><i style="background:#5d688a"></i><i style="background:#da7c7c"></i><i style="background:#eed46a"></i></div></div>
+    </div><div class="callout"><strong>實用起點：</strong>先定主色，再用面積、明度和彩度控制其他顏色的存在感。</div>
+    <p class="cite"><a href="https://frankknow.com/color-theory/" target="_blank" rel="noreferrer">犬哥網站</a> · <a href="https://www.shutterstock.com/zh-Hant/blog/complete-guide-color-in-design" target="_blank" rel="noreferrer">Shutterstock</a>｜色票為示意，互補關係依所採用的色輪模型判定。</p>
+  </section>
+  <section class="slide" aria-label="網站配色案例">
+    <p class="eyebrow">09｜配色應用</p><h1 class="title">把配色放進實際畫面</h1><div class="rule"></div>
+    <div class="palette"><div><h2>網站配色案例</h2><p class="muted">用色彩面積與用途建立層次</p><div class="paletteStack"><div style="background:#ffcccc;color:#49394f">淺粉紅｜柔和背景 / 大面積區塊</div><div style="background:#caabd8;color:#49394f">淺紫｜次要區塊</div><div style="background:#9873b9;color:white">中紫｜主色 / 互動元素</div><div style="background:#714288;color:white">深紫｜標題 / 強調</div></div></div><div><div class="paletteHead"><h2>色票</h2><img src="../assets/Layer 9.png" alt="拿著調色盤的插畫小鳥"></div><div class="codeRow"><div class="code"><i style="background:#ffcccc"></i>#FFCCCC</div><div class="code"><i style="background:#caabd8"></i>#CAABD8</div><div class="code"><i style="background:#9873b9"></i>#9873B9</div><div class="code"><i style="background:#714288"></i>#714288</div></div><div class="callout"><strong>套用到新設計時，檢查兩件事</strong><p class="body">文字是否清楚易讀？<br>主色、輔助色和點綴色有沒有分工？</p></div><p class="small">色票依據最新提供的網站配色截圖，實際呈色會受螢幕、背景與材質影響。</p></div></div>
+  </section>
+  <section class="slide" aria-label="顏色聯想">
+    <p class="eyebrow">10｜色彩心理</p><h1 class="title">顏色聯想：可作設計假設，不能當定律</h1><div class="rule"></div>
+    <p class="lead">設計文章常用顏色聯想快速建立方向，但同一顏色在不同文化、產品和情境裡可能傳達不同意思。</p>
+    <div class="meanings"><div class="meaning"><i class="dot" style="background:#da7c7c"></i><div><b>紅</b><p>熱情、警示、活力</p></div></div><div class="meaning"><i class="dot" style="background:#e9a76d"></i><div><b>橙</b><p>溫暖、活潑</p></div></div><div class="meaning"><i class="dot" style="background:#eed46a"></i><div><b>黃</b><p>明亮、醒目</p></div></div><div class="meaning"><i class="dot" style="background:#99b69a"></i><div><b>綠</b><p>自然、健康</p></div></div><div class="meaning"><i class="dot" style="background:#6b91b7"></i><div><b>藍</b><p>冷靜、可靠</p></div></div><div class="meaning"><i class="dot" style="background:#a99ac3"></i><div><b>紫</b><p>神秘、華麗</p></div></div></div>
+    <div class="bottomNote">先問「我要傳達什麼？」再用受眾與使用情境驗證，而不是只靠色彩標籤。</div>
+    <p class="cite"><a href="https://frankknow.com/color-theory/" target="_blank" rel="noreferrer">犬哥網站</a> · <a href="https://www.shutterstock.com/zh-Hant/blog/complete-guide-color-in-design" target="_blank" rel="noreferrer">Shutterstock</a>｜顏色聯想是設計參考，不代表所有人有相同反應。</p>
+  </section>
+  <section class="slide" aria-label="RGB 和 CMYK">
+    <p class="eyebrow">11｜色彩系統</p><h1 class="title">螢幕與印刷：RGB 和 CMYK</h1><div class="rule"></div>
+    <div class="modeCards"><article class="mode"><h2>RGB</h2><p class="body"><b>紅・綠・藍光</b><br><br>主要用於螢幕<br>光線相加，亮度增加<br>網頁、手機、電視</p><div class="rgbShapes" aria-hidden="true"><i></i><i></i><i></i></div></article><article class="mode"><h2>CMYK</h2><p class="body"><b>青・洋紅・黃・黑</b><br><br>主要用於印刷<br>油墨疊印，吸收部分光線<br>海報、名片、包裝</p><div class="small">印刷輸出仍須依色彩設定與印刷流程檢查。</div></article></div>
+    <div class="callout"><strong>螢幕預覽與印刷成品可能不同：</strong>還要看色彩設定、裝置、紙張、油墨與打樣。</div><p class="cite"><a href="https://frankknow.com/color-theory/" target="_blank" rel="noreferrer">犬哥網站</a> · <a href="https://www.shutterstock.com/zh-Hant/blog/complete-guide-color-in-design" target="_blank" rel="noreferrer">Shutterstock</a></p>
+  </section>
+  <section class="slide" aria-label="日常配色流程與參考資料">
+    <p class="eyebrow">12｜帶走這幾個方法</p><h1 class="title">日常配色的簡單流程</h1><div class="rule"></div>
+    <div class="steps"><div class="step"><i class="num">01</i><b>先說用途</b><span>想要清楚、安靜、活潑，還是醒目？</span></div><div class="step"><i class="num">02</i><b>選主色</b><span>用色相環找相似色或互補關係。</span></div><div class="step"><i class="num">03</i><b>安排層次</b><span>調整面積、明度與彩度，避免互相搶眼。</span></div><div class="step"><i class="num">04</i><b>實際檢查</b><span>看文字對比，並在目標螢幕或印刷條件下確認。</span></div></div>
+    <div class="sources"><h3>參考文章與資料</h3><p>Shutterstock｜<a href="https://www.shutterstock.com/zh-Hant/blog/complete-guide-color-in-design" target="_blank" rel="noreferrer">設計配色完整攻略：色彩意義、色彩理論、色彩心理學讓您一次擁有！</a>（2018）</p><p>犬哥網站｜<a href="https://frankknow.com/color-theory/" target="_blank" rel="noreferrer">色彩學入門教學：色相環、對比色 / 互補色、明度 / 彩度</a>（頁面標示更新：2026-04-27）</p><p>色彩來源｜<a href="https://science.nasa.gov/ems/09_visiblelight/" target="_blank" rel="noreferrer">NASA：Visible Light</a> · <a href="https://osa.magnet.fsu.edu/teachersparents/articles/colorandlight.html" target="_blank" rel="noreferrer">Optical Society：Color and Light</a> · <a href="https://visionbook.mit.edu/color.html" target="_blank" rel="noreferrer">MIT：Color</a></p><p>使用者提供｜<a href="https://polyvision.com.hk/2023/01/12/%E5%85%89%E9%81%A9%E6%87%89%E8%88%87%E6%9A%97%E9%81%A9%E6%87%89/?forceDesktop=1" target="_blank" rel="noreferrer">光適應與暗適應</a>（2023-01-12）</p><p>使用者提供｜<a href="https://zh.wikipedia.org/zh-tw/%E8%A6%96%E8%A6%BA%E6%9A%AB%E7%95%99" target="_blank" rel="noreferrer">視覺暫留</a>（附帶參考資料；此主題另以研究文獻校正）</p><p>視覺研究｜<a href="https://pubmed.ncbi.nlm.nih.gov/5769767/" target="_blank" rel="noreferrer">似動知覺實驗</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4145468/" target="_blank" rel="noreferrer">視覺時間整合</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8553010/" target="_blank" rel="noreferrer">電影與閃爍知覺</a></p><p class="small">簡報依專案 wiki 整理。插畫取自專案 assets，配色案例來自使用者提供的網站色票截圖。</p></div>
+  </section>
+</main>
+<div class="help">← → / 空白鍵切換</div><div class="controls"><button id="prev" aria-label="上一張">‹</button><span id="count" class="count" aria-live="polite">1 / 13</span><button id="next" aria-label="下一張">›</button></div>
+<script>
+  (()=>{const slides=[...document.querySelectorAll('.slide')],count=document.getElementById('count'),prev=document.getElementById('prev'),next=document.getElementById('next');let i=0;
+  function show(n){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,k)=>{s.classList.toggle('active',k===i);s.setAttribute('aria-hidden',k===i?'false':'true')});count.textContent=`${i+1} / ${slides.length}`;prev.disabled=i===0;next.disabled=i===slides.length-1;history.replaceState(null,'',`#${i+1}`)}
+  prev.addEventListener('click',()=>show(i-1));next.addEventListener('click',()=>show(i+1));document.addEventListener('keydown',e=>{if(['ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();show(i+1)}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(i-1)}else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1)});let touchX=null;document.addEventListener('touchstart',e=>touchX=e.changedTouches[0].screenX,{passive:true});document.addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].screenX-touchX;if(Math.abs(dx)>50)show(i+(dx<0?1:-1));touchX=null},{passive:true});const start=Number(location.hash.slice(1));show(Number.isFinite(start)&&start>0?start-1:0)})();
+</script>
+</body>
+</html>
